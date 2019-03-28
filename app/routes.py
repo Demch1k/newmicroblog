@@ -9,7 +9,6 @@ from werkzeug.urls import url_parse
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'Ivan'}
     posts = [
         {
             'author': {'username': 'John'},
@@ -24,7 +23,7 @@ def index():
             'body': 'Какая гадость эта ваша заливная рыба!'
         },
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home', posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
